@@ -28,6 +28,11 @@ const loadMoreImages = () => {
     fetchImages(inputValue, page, API_KEY).then(images => {
         console.log(images);
         addToMarkup(images);
+        window.scrollTo({
+            // document.documentElement.offsetHeight,
+            top: documentElement.clientHeight,
+            behavior: 'smooth'
+        });
     }).catch(error => console.log(error))
 }
 
