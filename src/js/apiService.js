@@ -7,7 +7,6 @@ const fetchImages = (query, page, API_KEY) => {
     }).then(data => {
         return data.hits;
     })
-    // .catch(error => console.log(error))
 
 }
 
