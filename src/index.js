@@ -9,6 +9,7 @@ const API_KEY = "19534970-c150d60c17d66f9c0c2e6c44f";
 // fetchImages('cat', 1, API_KEY)
 let inputValue = '';
 let page = 1;
+refs.buttonRef.style.display = "none";
 const getFormSubmit = (e) => {
     e.preventDefault();
     refs.galleryListRef.innerHTML = '';
@@ -20,20 +21,22 @@ const getFormSubmit = (e) => {
         }).catch(error => console.log(error))
 
     }
+    refs.buttonRef.style.display = "block";
 }
 
 
 const loadMoreImages = () => {
     page += 1;
+
     fetchImages(inputValue, page, API_KEY).then(images => {
         console.log(images);
         addToMarkup(images);
         window.scrollTo({
-            // document.documentElement.offsetHeight,
-            top: documentElement.clientHeight,
+            top: document.documentElement.offsetHeight - 2500,
             behavior: 'smooth'
         });
     }).catch(error => console.log(error))
+
 }
 
 
